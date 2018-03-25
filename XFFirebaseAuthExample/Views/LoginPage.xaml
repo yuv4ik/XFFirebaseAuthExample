@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:XFFirebaseAuthExample.Converters"
+    x:Class="XFFirebaseAuthExample.Views.LoginPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:InvertBooleanConverter x:Key="invertBooleanConverter" />
+
+            <Style TargetType="Label" x:Key="errorDescriptionStyle">
+                <Setter Property="TextColor" Value="Red" />
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout
+        Orientation="Vertical"
+        Padding="25"
+        VerticalOptions="Center">
+        <Label
+            Style="{StaticResource errorDescriptionStyle}"
+            Text="{Binding Email.ValidationDescriptions}"
+            IsVisible="{Binding Email.IsValid, Converter={StaticResource invertBooleanConverter}}" />
+        <Entry
+            Placeholder="Email"
+            Text="{Binding Email.Value}">
+            <Entry.Triggers>
+                <DataTrigger 
+                    TargetType="Entry"
+                    Binding="{Binding Email.IsValid}"
+                    Value="False">
+                    <Setter Property="TextColor" Value="Red" />
+                </DataTrigger>
+            </Entry.Triggers>
+        </Entry>
+        <Label
+            Style="{StaticResource errorDescriptionStyle}"
+            Text="{Binding Password.ValidationDescriptions}"
+            IsVisible="{Binding Password.IsValid, Converter={StaticResource invertBooleanConverter}}" />
+        <Entry
+            IsPassword="true"
+            Placeholder="Password"
+            Text="{Binding Password.Value}" />
+        <Button
+            Text="Login"
+            Command="{Binding LoginCmd}" />
+        <ActivityIndicator
+            IsVisible="{Binding IsBusy}"
+            IsRunning="{Binding IsBusy}" />
+    </StackLayout>
+</ContentPage>
