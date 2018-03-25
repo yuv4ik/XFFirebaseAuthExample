@@ -16,7 +16,7 @@ API backend with `Firebase` OAuthToken.
     * Switch to "Sign-in method" tab
         * Enable "Email/Password"
     * Switch to "Users" tab
-        * Add new user### Mobile App Configuration
+        * Add new user
 
 ### .NET Core WEB API Configuration
 
