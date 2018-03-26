@@ -28,6 +28,7 @@ API backend with `Firebase` OAuthToken.
 
 * Add "Xamarin.Firebase.Auth" NuGet package
 * Import "google-services.json" and set the building action to "GoogleServicesJson"
+   * In other words the `.csproj` should contain the next line: <GoogleServicesJson Include="google-services.json" />
 * Make sure that your package name is identical to the package name inside "google-services.json"
 * Add the next line of code in the MainActivity.cs OnCreate before LoadApplication:  
 ```C#
@@ -44,4 +45,4 @@ FirebaseApp.InitializeApp(Application.Context);
 Firebase.Core.App.Configure();
 ```  
 * Implement IFirebaseAuthenticator
-* Please note that the credentials are kept in keychain, this means that you cannot test the solution on simulator but only on a real devices.
+* Please note that if you want to test on the iOS simulator you will have to do one extra step as described [here](https://stackoverflow.com/a/39488013/1970317) due to a bug.
