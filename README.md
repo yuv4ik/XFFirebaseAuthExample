@@ -1,6 +1,13 @@
 ## XFFirebaseAuthExample
-Is an example of Xamarin.Forms `Droid` & `iOS` application that authenticates users via `Firebase` and consuming a protected .NET Core WEB
-API backend with `Firebase` OAuthToken.
+Is an example of Xamarin.Forms `Droid` & `iOS` application that authenticates users via `Firebase` and consuming a protected .NET Core WEB API backend with `Firebase` OAuthToken.
+
+Beside that you will also find examples of:
+* IOC using Autofac
+* PropertyChanged.Fody
+* Input validation
+* IValueConverter
+* Dynamically enable/disable `Command` with `ChangeCanExecute`
+* Styles
 
 ## Firebase
 
